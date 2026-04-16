@@ -72,3 +72,13 @@ ggplot(got_data, aes(x = Season, y = Viewers_Millions)) +
     y = "Viewers (Millions)"
   ) +
   theme_minimal()
+
+# Graph 2: Season-to-season changes
+ggplot(got_data[!is.na(got_data$Viewers_Change), ], aes(x = factor(Season), y = Viewers_Change)) +
+  geom_col(fill = "steelblue") +
+  labs(
+    title = "Season-to-Season Growth in Viewership",
+    x = "Season",
+    y = "New Viewers Gained (Millions)"
+  ) +
+  theme_minimal()
