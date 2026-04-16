@@ -60,3 +60,15 @@ got_data <- got_data %>%
 s1_viewers <- got_data$Viewers_Millions[1]
 s8_viewers <- got_data$Viewers_Millions[8]
 change_s7_s8 <- round(got_data$Viewers_Millions[8] - got_data$Viewers_Millions[7], 2)
+
+# Graph 1: Viewership over time
+ggplot(got_data, aes(x = Season, y = Viewers_Millions)) +
+  geom_line(color = "darkred", size = 1) +
+  geom_point(color = "black", size = 3) +
+  scale_x_continuous(breaks = 1:8) +
+  labs(
+    title = "Average US Viewership Over Time",
+    x = "Season",
+    y = "Viewers (Millions)"
+  ) +
+  theme_minimal()
