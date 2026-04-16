@@ -60,10 +60,23 @@ got_data <- got_data %>%
 s1_viewers <- got_data$Viewers_Millions[1]
 s8_viewers <- got_data$Viewers_Millions[8]
 change_s7_s8 <- round(got_data$Viewers_Millions[8] - got_data$Viewers_Millions[7], 2)
+```
 
+## Basic Statistics
+
+Throughout its 8-season run, *Game of Thrones* experienced unprecedented growth in its audience size:
+* **Maximum Average Viewership:** `r max(got_data$Viewers_Millions)` million (Season 8)
+* **Minimum Average Viewership:** `r min(got_data$Viewers_Millions)` million (Season 1)
+* **Overall Series Average:** `r round(mean(got_data$Viewers_Millions), 2)` million viewers per season.
+
+## Viewership Over Time
+
+The following graph illustrates the continuous upward trend of average US viewership across all 8 seasons of the show.
+
+```{r}
 # Graph 1: Viewership over time
 ggplot(got_data, aes(x = Season, y = Viewers_Millions)) +
-  geom_line(color = "darkred", size = 1) +
+  geom_line(color = "darkred", linewidth = 1) +
   geom_point(color = "black", size = 3) +
   scale_x_continuous(breaks = 1:8) +
   labs(
@@ -72,7 +85,13 @@ ggplot(got_data, aes(x = Season, y = Viewers_Millions)) +
     y = "Viewers (Millions)"
   ) +
   theme_minimal()
+```
 
+## Season-to-Season Changes
+
+To better understand the momentum of the show's popularity, we can look at the raw growth between consecutive seasons. 
+
+```{r}
 # Graph 2: Season-to-season changes
 ggplot(got_data[!is.na(got_data$Viewers_Change), ], aes(x = factor(Season), y = Viewers_Change)) +
   geom_col(fill = "steelblue") +
@@ -82,3 +101,4 @@ ggplot(got_data[!is.na(got_data$Viewers_Change), ], aes(x = factor(Season), y = 
     y = "New Viewers Gained (Millions)"
   ) +
   theme_minimal()
+```
