@@ -41,4 +41,22 @@ execute:
 *Game of Thrones* is an American fantasy drama television series created by David Benioff and D. B. Weiss for HBO. It is an adaptation of *A Song of Ice and Fire*, a series of fantasy novels by George R. R. Martin. The show premiered in 2011 and became a global cultural phenomenon, known for its complex characters, political intrigue, and unpredictable plot twists.
 
 ![Game of Thrones Title Card](https://upload.wikimedia.org/wikipedia/en/d/d8/Game_of_Thrones_title_card.jpg)
+```{r}
+# Load necessary libraries
+library(ggplot2)
+library(dplyr)
 
+# Create the dataset based on Wikipedia's average US viewership per season (in millions)
+got_data <- data.frame(
+  Season = 1:8,
+  Viewers_Millions = c(2.52, 3.80, 4.97, 6.84, 6.88, 7.69, 10.26, 11.99)
+)
+
+# Calculate season-to-season changes
+got_data <- got_data %>%
+  mutate(Viewers_Change = Viewers_Millions - lag(Viewers_Millions))
+
+# Extract specific numbers for inline references
+s1_viewers <- got_data$Viewers_Millions[1]
+s8_viewers <- got_data$Viewers_Millions[8]
+change_s7_s8 <- round(got_data$Viewers_Millions[8] - got_data$Viewers_Millions[7], 2)
