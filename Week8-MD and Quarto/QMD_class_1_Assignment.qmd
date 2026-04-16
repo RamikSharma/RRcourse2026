@@ -1,0 +1,44 @@
+---
+title: "QMD_class_1_Assignment"
+format: html
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
+
+---
+title: "TV Show Viewership Report: Game of Thrones"
+author: "Ramik Sharma"
+date: "`r Sys.Date()`"
+format: html
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## Introduction
+
+*Game of Thrones* is an American fantasy drama television series created by David Benioff and D. B. Weiss for HBO. It is an adaptation of *A Song of Ice and Fire*, a series of fantasy novels by George R. R. Martin. The show premiered in 2011 and became a global cultural phenomenon, known for its complex characters, political intrigue, and unpredictable plot twists.
+
+![Game of Thrones Title Card](https://upload.wikimedia.org/wikipedia/en/d/d8/Game_of_Thrones_title_card.jpg)
+
