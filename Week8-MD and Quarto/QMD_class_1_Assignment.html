@@ -152,6 +152,14 @@ window.Quarto = {
 <p>s1_viewers &lt;- got_data<span class="math inline">\(Viewers_Millions[1]
 s8_viewers &lt;- got_data\)</span>Viewers_Millions[8] change_s7_s8 &lt;- round(got_data<span class="math inline">\(Viewers_Millions[8] - got_data\)</span>Viewers_Millions[7], 2)</p>
 </section>
+<section id="graph-1-viewership-over-time" class="level1">
+<h1>Graph 1: Viewership over time</h1>
+<p>ggplot(got_data, aes(x = Season, y = Viewers_Millions)) + geom_line(color = “darkred”, size = 1) + geom_point(color = “black”, size = 3) + scale_x_continuous(breaks = 1:8) + labs( title = “Average US Viewership Over Time”, x = “Season”, y = “Viewers (Millions)” ) + theme_minimal()</p>
+</section>
+<section id="graph-2-season-to-season-changes" class="level1">
+<h1>Graph 2: Season-to-season changes</h1>
+<p>ggplot(got_data[!is.na(got_data$Viewers_Change), ], aes(x = factor(Season), y = Viewers_Change)) + geom_col(fill = “steelblue”) + labs( title = “Season-to-Season Growth in Viewership”, x = “Season”, y = “New Viewers Gained (Millions)” ) + theme_minimal()</p>
+</section>
 
 </main>
 <!-- /main column -->
