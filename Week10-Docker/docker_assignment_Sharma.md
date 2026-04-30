@@ -103,6 +103,11 @@ CMD ["python", "hello.py"]
 
 
 ## Part 2.Reproducibility judgment
-###Question 2.1 — Why pin?
+### Question 2.1 — Why pin?
 In Task 1.2 you pinned a specific version of pandas. Suppose you had instead written RUN pip install pandas (no version). Your Dockerfile would still build and run today. Why is this a reproducibility problem? What concretely could go wrong, and when?
-### A
+### Answer 2.1 
+If you do not pin the version of pandas, then when you build the Docker image in the future, it will install the latest version of pandas available at that time. This can lead to reproducibility issues because the latest version of pandas may have changes or updates that are not compatible with your code. In case  a new version of pandas introduces a breaking change or deprecates a function that the current code relies on, the application might fail to run correctly or to run at all. This could happen immediately after a new release of pandas or at any point in the future when you try to rebuild the image. Pinning the version, ensures that the  application always uses the same version of pandas, which helps maintain consistency and serves the reproducibility purpose.
+### Question 2.2 —— Recipe or cake?
+If you want a colleague to reproduce your work, you can either send them the built image (e.g. via Docker Hub) or send them only the Dockerfile and hello.py. Which is better for reproducible research, and why? Give one concrete reason beyond "easier" or "faster."
+### Answer 2.2
+Sending the Dockerfile and hello.py together is better for reproducible research because it allows the colleague to understand the exact steps and dependencies required to build the image as it is in plain text. This transparency is crucial for reproducibility, as it enables others to verify and modify the environment if needed. Cases where  there are  security vulnerabilities in one of the dependencies, the colleague/reviewer can easily update the Dockerfile to use a patched version. Whereas, sending alone the built image does not provide this level of information or flexibility, making it harder for others to reproduce or adapt your work in the future.
