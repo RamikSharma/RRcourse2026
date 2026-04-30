@@ -554,3 +554,6 @@ Then create a short report — you can copy descriptive content from Wikipedia f
 7.  Make sure your report looks nice — this time we're mostly interested in the output and not necessarily the code used to achieve it. Use `echo: false` globally.
 8.  `render` your report and save it in the relevant folder of your repo.
 9.  Commit the changes and push them to GitHub.
+
+
+
